@@ -1,0 +1,10 @@
+C:\Users\jbulatek\source\repos\engr\engr\bin\Debug\engr.exe.config
+C:\Users\jbulatek\source\repos\engr\engr\bin\Debug\engr.exe
+C:\Users\jbulatek\source\repos\engr\engr\bin\Debug\engr.pdb
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.csprojResolveAssemblyReference.cache
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.MainView.resources
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.Properties.Resources.resources
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.csproj.GenerateResource.Cache
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.csproj.CoreCompileInputs.cache
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.exe
+C:\Users\jbulatek\source\repos\engr\engr\obj\Debug\engr.pdb
