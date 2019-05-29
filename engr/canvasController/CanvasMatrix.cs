@@ -24,17 +24,19 @@ namespace engr.canvasController
         }
 
         public int getCellSize() { return _cellSize; }
-        public bool isRobot(int row, int col) { return _isRobotPresent[row, col]; }
+        public bool isRobot(int row, int col) { return _isRobotPresent[row, col];}
         public bool isDest(int row, int col) { return _isDestPresent[row, col]; }
         public void setRobot(int row, int col) { _isRobotPresent[row, col] = true; }
         public void setDest(int row, int col) { _isDestPresent[row, col] = true; }
         public void swichIsRobot(int row, int col) { _isRobotPresent[row, col] = !_isRobotPresent[row, col]; }
-        public void clearIsRobot() {
+        public void clearRobotCell(int row, int col) { _isRobotPresent[row, col] = false; }
+        public void clearDestCell(int row, int col) { _isDestPresent[row, col] = false; }
+        public void clearRobotMatrix() {
             for (int i = 0; i < _row; i++)
                 for (int j = 0; j < _col; j++)
                     _isRobotPresent[i, j] = false;
         }
-        public void clearIsDest()
+        public void clearDestMatrix()
         {
             for (int i = 0; i < _row; i++)
                 for (int j = 0; j < _col; j++)

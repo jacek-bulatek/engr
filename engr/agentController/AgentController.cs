@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace engr.agentController
 {
+    delegate Agent CollisionEventHandler(int row, int col);
+    /*
+     * The point of this delegate is to open
+     * the communication stream between two
+     * agents.
+     */ 
     class AgentController
     {
         int _agentNo;
@@ -17,44 +23,25 @@ namespace engr.agentController
         {
             genRandom = new Random();
             _matrix = matrix;
-            _matrix.clearIsRobot();
+            _matrix.clearRobotMatrix();
             _agentNo = agentNo;
             _agentSet = new Agent[_agentNo];
             for (int i = 0; i < _agentNo; i++)
             {
-                _agentSet[i] = new Agent(rowNo, colNo);
-                while (true)
-                {
-                    if (_matrix.isRobot(_agentSet[i]._coordinates[0], _agentSet[i]._coordinates[1]))
-                    {
-                        _agentSet[i].drawCoordinates(rowNo, colNo);
-                    }
-                    else
-                    {
-                        _matrix.setRobot(_agentSet[i]._coordinates[0], _agentSet[i]._coordinates[1]);
-                        break;
-                    }
-                }
+                _agentSet[i] = new Agent(ref _matrix, rowNo, colNo);
             }
         }
+        /*
+         * Function: moveAgents
+         * 
+         * Function moves each agent separately
+         * 
+         */
         public void moveAgents()
         {
             foreach (Agent agent in _agentSet)
             {
-                int dirRow;
-                int dirCol;
-                do
-                {
-                    dirRow = genRandom.Next(-1, 2);     // -1 - left, 1 - right, 0 - stay
-                    dirCol = genRandom.Next(-1, 2);     // -1 - down, 1 - up, 0 stay
-                    // Check if moved out of canvas:
-                    if (agent._coordinates[0] + dirRow >= _matrix._row || agent._coordinates[0] + dirRow < 0 || agent._coordinates[1] + dirCol >= _matrix._col || agent._coordinates[1] + dirCol < 0)
-                        dirCol = dirRow = 0;            // if yes, staying is not possible;
-                } while (_matrix.isRobot(agent._coordinates[0] + dirRow, agent._coordinates[1] + dirCol));
-                _matrix.swichIsRobot(agent._coordinates[0], agent._coordinates[1]);
-                agent._coordinates[0] += dirRow;
-                agent._coordinates[1] += dirCol;
-                _matrix.swichIsRobot(agent._coordinates[0], agent._coordinates[1]);
+                agent.move();
             }
         }
     }

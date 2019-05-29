@@ -63,7 +63,7 @@ namespace engr.canvasController
         }
         public void setDestPic(string[] destPic)
         {
-            _canvasMatrix.clearIsDest();
+            _canvasMatrix.clearDestMatrix();
             foreach (string field in destPic)
             {
                 string[] coordinates = field.Split(' ');
